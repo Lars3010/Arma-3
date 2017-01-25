@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>ETA Calculator</title>
+		<style>
+		html
+		{
+			font-family: arial;
+			background-color: #59592e;
+			color: rgb(39, 40, 38);
+		}
+		body
+		{
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+		h1
+		{
+			font-size: 300%;
+			color: #f6f6f6;
+		}
+		#container
+		{
+			margin: 0 auto;
+			text-align: center;
+			max-width:90%;
+		}
+		form
+		{
+			width: auto;
+			height: auto;
+			text-align: center;
+		}
+
+		form *
+		{
+			border: none;
+			margin-bottom: 8%;
+			font-size: 120%;
+			max-height: 90px;
+			min-height: 40px;
+			height: 60px;
+			width: 70%;
+		}
+		form *:last-child
+		{
+			margin-bottom: 0px;
+		}
+
+		.field
+		{
+			background-color: #f6f6f6;
+			box-shadow: 2px 2px 3px rgba(39, 40, 38, 0.84);
+		}
+
+		#submit
+		{
+			background-color: rgba(0, 0, 0, 0.70);
+			color: #f6f6f6;
+			border: none;
+			box-shadow: 3px 3px 4px rgba(39, 40, 38, 0.84);
+			cursor: pointer;
+		}
+
+		#submit:hover
+		{
+			background-color: rgba(33, 32, 32, 0.80);
+		}
+
+		#submit:active
+		{
+			background-color: rgba(33, 32, 32, 0.80);
+			box-shadow: 2px 2px 3px rgba(39, 40, 38, 0.84);
+			transform: translateY(3px);
+		}
+
+		@media (min-width: 768px)
+		{
+			form *
+			{
+				margin-bottom: 6%;
+			}
+		}
+
+		@media (min-width: 990px)
+		{
+			form *
+			{
+				margin-bottom: 3%;
+			}
+		}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+		    <header>
+				<h1>ETA Calculator</h1>
+		    </header>
+			<form>
+				<input type="number" id="distance" class="field" placeholder="Distance in meters" autofocus>
+				<select id="speed" class="field">
+					<option value=225>Jogging Pace</option>
+					<option value=55>Walking Pace</option>
+				</select>
+				<input type="button" id="submit" value="Calculate">
+				<input readonly type="text" id="result" class="field" placeholder="Result">
+			</form>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("submit").addEventListener("click", calculate);
+			function calculate()
+			{
+				var distance = document.getElementById('distance').value;
+				var speed = document.getElementById('speed').value;
+				var display = document.getElementById('result');
+				var result = distance/speed;
+				display.value = result + " Minutes";
+			}
+		</script>
+	</body>
+</html>
